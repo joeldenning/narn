@@ -18,6 +18,10 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "devDependencies": {
     "@types/jest": "^24.0.19",
     "husky": "^3.0.9",
