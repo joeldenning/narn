@@ -1,0 +1,31 @@
+{
+  "name": "narn",
+  "version": "1.0.0",
+  "main": "lib/narn-lib.js",
+  "bin": {
+    "narn": "bin/narn.js"
+  },
+  "repository": "git@github.com:joeldenning/narn.git",
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://github.com/joeldenning/narn",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --env=node",
+    "prettier": "prettier 'bin/**/*' --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
+    "minimist": "^1.2.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0"
+  },
+  "dependencies": {}
+}
