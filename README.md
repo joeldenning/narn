@@ -24,6 +24,10 @@ narn add react
 
 # To remove a package
 narn remove react
+
+# Run a script from the package.json
+narn test
+narn build
 ```
 
 For more usage, see the [Yarn CLI docs](https://yarnpkg.com/lang/en/docs/cli/) - `narn`'s cli is meant to behave exactly the same.
