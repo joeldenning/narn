@@ -45,4 +45,12 @@ describe("narn add", () => {
       "react@16.10.0"
     ]);
   });
+
+  it("works with devDependencies and first dep not specifying version", () => {
+    expect(getNpmArgs(["add", "--dev", "jest"])).toEqual([
+      "install",
+      "--save-dev",
+      "jest@latest"
+    ]);
+  });
 });
