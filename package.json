@@ -1,6 +1,6 @@
 {
   "name": "narn",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "lib/narn-lib.js",
   "bin": {
     "narn": "bin/narn.js"
