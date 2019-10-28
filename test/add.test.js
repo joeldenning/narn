@@ -6,6 +6,22 @@ describe("narn add", () => {
       "install",
       "--save"
     ]);
+    expect(getNpmArgs(["add", "--dev", "lodash"]).slice(0, 2)).toEqual([
+      "install",
+      "--save-dev"
+    ]);
+    expect(getNpmArgs(["add", "-D", "lodash"]).slice(0, 2)).toEqual([
+      "install",
+      "--save-dev"
+    ]);
+    expect(getNpmArgs(["add", "lodash", "--dev"]).slice(0, 2)).toEqual([
+      "install",
+      "--save-dev"
+    ]);
+    expect(getNpmArgs(["add", "lodash", "-D"]).slice(0, 2)).toEqual([
+      "install",
+      "--save-dev"
+    ]);
   });
 
   it("can install multiple packages with their semantic version specified", () => {
