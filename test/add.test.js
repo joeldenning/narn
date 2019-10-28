@@ -37,4 +37,20 @@ describe("narn add", () => {
       "@openmrs/esm-api@~1.0.0"
     ]);
   });
+
+  it("works with devDependencies", () => {
+    expect(getNpmArgs(["add", "--dev", "react@16.10.0"])).toEqual([
+      "install",
+      "--save-dev",
+      "react@16.10.0"
+    ]);
+  });
+
+  it("works with devDependencies and first dep not specifying version", () => {
+    expect(getNpmArgs(["add", "--dev", "jest"])).toEqual([
+      "install",
+      "--save-dev",
+      "jest@latest"
+    ]);
+  });
 });
