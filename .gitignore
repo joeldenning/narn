@@ -61,3 +61,6 @@ typings/
 .next
 
 .DS_Store
+
+# remove p-lock
+package-lock.json
