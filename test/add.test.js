@@ -89,4 +89,12 @@ describe("narn add", () => {
       "git@github.com:joeldenning/narn.git#master"
     ]);
   });
+
+  it("supports installing from file", () => {
+    expect(getNpmArgs(["add", "file:../local-package"])).toEqual([
+      "install",
+      "--save",
+      "../local-package"
+    ]);
+  });
 });
