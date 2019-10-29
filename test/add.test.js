@@ -69,4 +69,24 @@ describe("narn add", () => {
       "jest@latest"
     ]);
   });
+
+  it("supports installing from https urls", () => {
+    expect(
+      getNpmArgs(["add", "https://github.com/joeldenning/narn#master"])
+    ).toEqual([
+      "install",
+      "--save",
+      "https://github.com/joeldenning/narn#master"
+    ]);
+  });
+
+  it("supports installing from git urls", () => {
+    expect(
+      getNpmArgs(["add", "git@github.com:joeldenning/narn.git#master"])
+    ).toEqual([
+      "install",
+      "--save",
+      "git@github.com:joeldenning/narn.git#master"
+    ]);
+  });
 });
