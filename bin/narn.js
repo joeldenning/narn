@@ -11,15 +11,18 @@ const narnPackageJson = JSON.parse(
 async function runPackageManager() {
   const narnArgs = process.argv.slice(2);
   const isYarn = await detectYarn(narnArgs);
-
   const command = isYarn ? "yarn" : "npm";
-  const commandArgs = isYarn ? getYarnArgs(narnArgs) : getNpmArgs(narnArgs);
+  let commandArgs;
 
-  if (narnArgs.includes("--version")) {
+  const firstArg = narnArgs.length > 0 ? narnArgs[0] : null;
+  if (firstArg === "--version" || firstArg === "-v") {
     console.info(`narn version ${narnPackageJson.version}`);
+    commandArgs = narnArgs;
+  } else {
+    commandArgs = isYarn ? getYarnArgs(narnArgs) : getNpmArgs(narnArgs);
   }
-  console.info(`${command} ${commandArgs.join(" ")}`);
 
+  console.info(`${command} ${commandArgs.join(" ")}`);
   spawn(command, commandArgs, { stdio: "inherit" });
 }
 
