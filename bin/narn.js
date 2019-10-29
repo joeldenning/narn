@@ -9,8 +9,8 @@ const narnPackageJson = JSON.parse(
 );
 
 async function runPackageManager() {
-  const isYarn = await detectYarn();
   const narnArgs = process.argv.slice(2);
+  const isYarn = await detectYarn(narnArgs);
 
   const command = isYarn ? "yarn" : "npm";
   const commandArgs = isYarn ? getYarnArgs(narnArgs) : getNpmArgs(narnArgs);
