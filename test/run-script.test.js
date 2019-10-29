@@ -6,7 +6,7 @@ describe(`narn <script>`, () => {
   });
 
   it(`lets you run scripts with the yarn syntax and extra flags`, () => {
-    expect(getNpmArgs(["test --watch"])).toEqual([
+    expect(getNpmArgs(["test", "--watch"])).toEqual([
       "run",
       "test",
       "--",
@@ -15,6 +15,11 @@ describe(`narn <script>`, () => {
   });
 
   it(`lets you run scripts with the yarn syntax and extra flags that narn sometimes knows about`, () => {
-    expect(getNpmArgs(["test --dev"])).toEqual(["run", "test", "--", "--dev"]);
+    expect(getNpmArgs(["test", "--dev"])).toEqual([
+      "run",
+      "test",
+      "--",
+      "--dev"
+    ]);
   });
 });
