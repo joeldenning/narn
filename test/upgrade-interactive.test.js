@@ -2,13 +2,14 @@ const { getNpmArgs } = require("../lib/narn-lib");
 
 describe("narn upgrade-interactive", () => {
   it("Can run npm update", () => {
-    expect(getNpmArgs(["upgrade-interactive"])).toEqual(["update"]);
+    const expected = ["-iu", "&&", "npm", "install"];
+    expected.command = "ncu";
+    expect(getNpmArgs(["upgrade-interactive"])).toEqual(expected);
   });
 
   it("Can run npm-check-updates for --latest behavior", () => {
-    const actual = getNpmArgs(["upgrade-interactive", "--latest"]);
     const expected = ["-iu", "&&", "npm", "install"];
     expected.command = "ncu";
-    expect(actual).toEqual(expected);
+    expect(getNpmArgs(["upgrade-interactive", "--latest"])).toEqual(expected);
   });
 });
