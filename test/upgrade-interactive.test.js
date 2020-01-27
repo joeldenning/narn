@@ -6,12 +6,9 @@ describe("narn upgrade-interactive", () => {
   });
 
   it("Can run npm-check-updates for --latest behavior", () => {
-    expect(getNpmArgs(["upgrade-interactive", "--latest"])).toEqual([
-      "ncu",
-      "-iu",
-      "&&",
-      "npm",
-      "install"
-    ]);
+    const actual = getNpmArgs(["upgrade-interactive", "--latest"]);
+    const expected = ["-iu", "&&", "npm", "install"];
+    expected.command = "ncu";
+    expect(actual).toEqual(expected);
   });
 });
