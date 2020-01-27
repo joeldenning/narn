@@ -25,7 +25,7 @@ async function runPackageManager() {
   command = commandArgs.command || command;
 
   console.info(`${command} ${commandArgs.join(" ")}`);
-  spawn(command, commandArgs, { stdio: "inherit" });
+  spawn(command, commandArgs, { stdio: "inherit", shell: true });
 }
 
 runPackageManager().catch(err => {
