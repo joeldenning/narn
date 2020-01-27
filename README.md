@@ -13,6 +13,12 @@ npm i -g narn
 yarn global add narn
 ```
 
+### Extras
+
+If you run `narn upgrade-interactive --latest` on a project managed by npm, you'll need to globally install [`ncu`](https://github.com/tjunnone/npm-check-updates).
+
+If you run `narn publish` on a project managed by npm, you'll need to globally install [`np`](https://github.com/sindresorhus/np).
+
 ## Usage
 
 ```sh
