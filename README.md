@@ -34,6 +34,13 @@ narn remove react
 # Run a script from the package.json
 narn test
 narn build
+
+# Publish with interactive UI
+narn publish
+
+# Upgrade dependencies with interactive ui
+narn upgrade-interactive
+narn upgrade-interactive --latest
 ```
 
 For more usage, see the [Yarn CLI docs](https://yarnpkg.com/lang/en/docs/cli/) - `narn`'s cli is meant to behave exactly the same.
