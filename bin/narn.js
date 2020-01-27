@@ -11,7 +11,7 @@ const narnPackageJson = JSON.parse(
 async function runPackageManager() {
   const narnArgs = process.argv.slice(2);
   const isYarn = await detectYarn(narnArgs);
-  const command = isYarn ? "yarn" : "npm";
+  let command = isYarn ? "yarn" : "npm";
   let commandArgs;
 
   const firstArg = narnArgs.length > 0 ? narnArgs[0] : null;
@@ -21,6 +21,8 @@ async function runPackageManager() {
   } else {
     commandArgs = isYarn ? getYarnArgs(narnArgs) : getNpmArgs(narnArgs);
   }
+
+  command = commandArgs.command || command;
 
   console.info(`${command} ${commandArgs.join(" ")}`);
   spawn(command, commandArgs, { stdio: "inherit" });
