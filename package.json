@@ -27,11 +27,11 @@
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
-    "minimist": "^1.2.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0"
   },
   "dependencies": {
+    "minimist": "^1.2.0",
     "validate-npm-package-name": "^3.0.0"
   }
 }
