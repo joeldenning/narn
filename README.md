@@ -41,6 +41,9 @@ narn publish
 # Upgrade dependencies with interactive ui
 narn upgrade-interactive
 narn upgrade-interactive --latest
+
+# Install global library. All global libs are installed with yarn (since the most important thing is just that you consistently use the same package manager for global libs)
+narn global install @vue/cli
 ```
 
 For more usage, see the [Yarn CLI docs](https://yarnpkg.com/lang/en/docs/cli/) - `narn`'s cli is meant to behave exactly the same.
