@@ -31,6 +31,10 @@ narn add react
 # To remove a package
 narn remove react
 
+# Add a dev dependency
+narn add --dev webpack
+narn add -D webpack
+
 # Run a script from the package.json
 narn test
 narn build
@@ -44,6 +48,10 @@ narn upgrade-interactive --latest
 
 # Install global library. All global libs are installed with yarn (since the most important thing is just that you consistently use the same package manager for global libs)
 narn global add @vue/cli
+
+# View the installed versions of narn and yarn/npm
+narn -v
+narn --version
 ```
 
 For more usage, see the [Yarn CLI docs](https://yarnpkg.com/lang/en/docs/cli/) - `narn`'s cli is meant to behave exactly the same.
