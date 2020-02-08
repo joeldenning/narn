@@ -13,7 +13,7 @@ describe("narn upgrade-interactive", () => {
     expect(getNpmArgs(["upgrade-interactive", "--latest"])).toEqual(expected);
   });
 
-  it("Runs pnpm upgrade-interactive for pnpm projects", () => {
+  it("Runs pnpm update for pnpm projects", () => {
     const isPnpm = true;
     expect(getNpmArgs(["upgrade-interactive"], isPnpm)).toEqual([
       "update",
