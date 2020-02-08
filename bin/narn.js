@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 const { spawn } = require("child_process");
-const { detectYarn, getYarnArgs, getNpmArgs } = require("../lib/narn-lib.js");
+const {
+  detectNpm,
+  detectPnpm,
+  getYarnArgs,
+  getNpmArgs
+} = require("../lib/narn-lib.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -10,8 +15,21 @@ const narnPackageJson = JSON.parse(
 
 async function runPackageManager() {
   const narnArgs = process.argv.slice(2);
-  const isYarn = await detectYarn(narnArgs);
-  let command = isYarn ? "yarn" : "npm";
+  const [isNpm, isPnpm] = await Promise.all([
+    detectNpm(narnArgs),
+    detectPnpm(narnArgs)
+  ]);
+
+  let command;
+
+  if (isPnpm) {
+    command = "pnpm";
+  } else if (isNpm) {
+    command = "npm";
+  } else {
+    command = "yarn";
+  }
+
   let commandArgs;
 
   const firstArg = narnArgs.length > 0 ? narnArgs[0] : null;
@@ -19,7 +37,8 @@ async function runPackageManager() {
     console.info(`narn version ${narnPackageJson.version}`);
     commandArgs = narnArgs;
   } else {
-    commandArgs = isYarn ? getYarnArgs(narnArgs) : getNpmArgs(narnArgs);
+    commandArgs =
+      command === "yarn" ? getYarnArgs(narnArgs) : getNpmArgs(narnArgs, isPnpm);
   }
 
   command = commandArgs.command || command;

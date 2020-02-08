@@ -1,8 +1,8 @@
 # narn
 
-Never have to switch between npm and yarn commands ever again.
+Never have to switch between yarn, npm, and pnpm commands ever again.
 
-`narn` is a CLI that detects whether your current npm package is using npm or yarn. It then spawns the correct one with the correct arguments. The arguments to narn itself are exactly the same as if you're using yarn. The command will be converted to npm's syntax if the current package is managed by npm.
+`narn` is a CLI that detects whether your current npm package is using npm, yarn, or pnpm. It then spawns the correct one with the correct arguments. The arguments to narn itself are exactly the same as if you're using yarn. The command will be converted to npm or pnpm's syntax if the current package is managed by npm / pnpm.
 
 ## Installation
 

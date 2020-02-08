@@ -1,4 +1,4 @@
-const { detectYarn } = require("../lib/narn-lib");
+const { detectNpm } = require("../lib/narn-lib");
 const fs = require("fs");
 
 jest.mock("fs", () => ({
@@ -14,20 +14,20 @@ describe("narn global commands", () => {
   });
 
   it("supports installing global packages", async () => {
-    const isYarn = await detectYarn(["global", "add", "lodash@1.0.0"]);
-    expect(isYarn).toBe(true);
+    const isNpm = await detectNpm(["global", "add", "lodash@1.0.0"]);
+    expect(isNpm).toBe(false);
   });
 
   it("supports uninstalling global packages", async () => {
-    const isYarn = await detectYarn(["global", "remove", "lodash"]);
-    expect(isYarn).toBe(true);
+    const isNpm = await detectNpm(["global", "remove", "lodash"]);
+    expect(isNpm).toBe(false);
   });
 
   it("doesn't think everything is global", async () => {
     fs.access.mockImplementationOnce((path, mode, errBack) => {
       errBack(false);
     });
-    const isYarn = await detectYarn(["add", "lodash@1.0.0"]);
-    expect(isYarn).toBe(false);
+    const isNpm = await detectNpm(["add", "lodash@1.0.0"]);
+    expect(isNpm).toBe(true);
   });
 });
