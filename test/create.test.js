@@ -8,7 +8,7 @@ describe("narn create", () => {
     ]);
   });
 
-  it("can run a create-thing package with npm", () => {
+  it("can run a create-thing package with pnpm", () => {
     expect(getNpmArgs(["create", "single-spa"], true)).toEqual([
       "init",
       "single-spa"
