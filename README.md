@@ -49,6 +49,9 @@ narn upgrade-interactive --latest
 # Install global library. All global libs are installed with yarn (since the most important thing is just that you consistently use the same package manager for global libs)
 narn global add @vue/cli
 
+# yarn create single-spa is similar to npm init single-spa
+narn create single-spa
+
 # View the installed versions of narn and yarn/npm
 narn -v
 narn --version
