@@ -31,7 +31,7 @@
     "pretty-quick": "^2.0.0"
   },
   "dependencies": {
-    "minimist": "^1.2.2",
+    "minimist": "^1.2.3",
     "validate-npm-package-name": "^3.0.0"
   }
 }
