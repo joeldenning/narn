@@ -1,0 +1,6 @@
+coverage
+.prettierignore
+.gitignore
+LICENSE
+yarn.lock
+yarn-error.log

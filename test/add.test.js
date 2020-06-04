@@ -4,23 +4,23 @@ describe("narn add", () => {
   it("forces packages to be saved", () => {
     expect(getNpmArgs(["add", "lodash"]).slice(0, 2)).toEqual([
       "install",
-      "--save"
+      "--save",
     ]);
     expect(getNpmArgs(["add", "--dev", "lodash"]).slice(0, 2)).toEqual([
       "install",
-      "--save-dev"
+      "--save-dev",
     ]);
     expect(getNpmArgs(["add", "-D", "lodash"]).slice(0, 2)).toEqual([
       "install",
-      "--save-dev"
+      "--save-dev",
     ]);
     expect(getNpmArgs(["add", "lodash", "--dev"]).slice(0, 2)).toEqual([
       "install",
-      "--save-dev"
+      "--save-dev",
     ]);
     expect(getNpmArgs(["add", "lodash", "-D"]).slice(0, 2)).toEqual([
       "install",
-      "--save-dev"
+      "--save-dev",
     ]);
   });
 
@@ -29,7 +29,7 @@ describe("narn add", () => {
       "install",
       "--save",
       "react@16.10.0",
-      "react-dom@^16.10.0"
+      "react-dom@^16.10.0",
     ]);
   });
 
@@ -37,7 +37,7 @@ describe("narn add", () => {
     expect(getNpmArgs(["add", "lodash"])).toEqual([
       "install",
       "--save",
-      "lodash@latest"
+      "lodash@latest",
     ]);
   });
 
@@ -45,12 +45,12 @@ describe("narn add", () => {
     expect(getNpmArgs(["add", "@openmrs/esm-api"])).toEqual([
       "install",
       "--save",
-      "@openmrs/esm-api@latest"
+      "@openmrs/esm-api@latest",
     ]);
     expect(getNpmArgs(["add", "@openmrs/esm-api@~1.0.0"])).toEqual([
       "install",
       "--save",
-      "@openmrs/esm-api@~1.0.0"
+      "@openmrs/esm-api@~1.0.0",
     ]);
   });
 
@@ -58,7 +58,7 @@ describe("narn add", () => {
     expect(getNpmArgs(["add", "--dev", "react@16.10.0"])).toEqual([
       "install",
       "--save-dev",
-      "react@16.10.0"
+      "react@16.10.0",
     ]);
   });
 
@@ -66,7 +66,7 @@ describe("narn add", () => {
     expect(getNpmArgs(["add", "--dev", "jest"])).toEqual([
       "install",
       "--save-dev",
-      "jest@latest"
+      "jest@latest",
     ]);
   });
 
@@ -76,7 +76,7 @@ describe("narn add", () => {
     ).toEqual([
       "install",
       "--save",
-      "https://github.com/joeldenning/narn#master"
+      "https://github.com/joeldenning/narn#master",
     ]);
   });
 
@@ -86,7 +86,7 @@ describe("narn add", () => {
     ).toEqual([
       "install",
       "--save",
-      "git@github.com:joeldenning/narn.git#master"
+      "git@github.com:joeldenning/narn.git#master",
     ]);
   });
 
@@ -94,7 +94,7 @@ describe("narn add", () => {
     expect(getNpmArgs(["add", "file:../local-package"])).toEqual([
       "install",
       "--save",
-      "../local-package"
+      "../local-package",
     ]);
   });
 });

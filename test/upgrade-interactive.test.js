@@ -17,13 +17,13 @@ describe("narn upgrade-interactive", () => {
     const isPnpm = true;
     expect(getNpmArgs(["upgrade-interactive"], isPnpm)).toEqual([
       "update",
-      "--interactive"
+      "--interactive",
     ]);
 
     expect(getNpmArgs(["upgrade-interactive", "--latest"], isPnpm)).toEqual([
       "update",
       "--interactive",
-      "--latest"
+      "--latest",
     ]);
   });
 });

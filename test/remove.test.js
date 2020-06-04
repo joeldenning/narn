@@ -5,7 +5,7 @@ describe("narn remove", () => {
     expect(getNpmArgs(["remove", "@angular/cli", "@angular/core"])).toEqual([
       "uninstall",
       "@angular/cli",
-      "@angular/core"
+      "@angular/core",
     ]);
   });
 });

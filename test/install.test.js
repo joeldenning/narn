@@ -17,7 +17,7 @@ describe("narn install", () => {
     it("works with pnpm", () => {
       expect(getNpmArgs(["install", "--frozen-lockfile"], true)).toEqual([
         "install",
-        "--frozen-lockfile"
+        "--frozen-lockfile",
       ]);
     });
   });

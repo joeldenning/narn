@@ -10,7 +10,7 @@ describe(`narn <script>`, () => {
       "run",
       "test",
       "--",
-      "--watch"
+      "--watch",
     ]);
   });
 
@@ -19,7 +19,7 @@ describe(`narn <script>`, () => {
       "run",
       "test",
       "--",
-      "--dev"
+      "--dev",
     ]);
   });
 });

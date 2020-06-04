@@ -4,7 +4,7 @@ const {
   detectNpm,
   detectPnpm,
   getYarnArgs,
-  getNpmArgs
+  getNpmArgs,
 } = require("../lib/narn-lib.js");
 const fs = require("fs");
 const path = require("path");
@@ -17,7 +17,7 @@ async function runPackageManager() {
   const narnArgs = process.argv.slice(2);
   const [isNpm, isPnpm] = await Promise.all([
     detectNpm(narnArgs),
-    detectPnpm(narnArgs)
+    detectPnpm(narnArgs),
   ]);
 
   let command;
@@ -47,7 +47,7 @@ async function runPackageManager() {
   spawn(command, commandArgs, { stdio: "inherit", shell: true });
 }
 
-runPackageManager().catch(err => {
+runPackageManager().catch((err) => {
   console.error(err);
   process.exit(1);
 });

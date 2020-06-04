@@ -4,8 +4,8 @@ const fs = require("fs");
 jest.mock("fs", () => ({
   access: jest.fn(),
   constants: {
-    F_OK: 1
-  }
+    F_OK: 1,
+  },
 }));
 
 describe("narn global commands", () => {
