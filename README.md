@@ -58,3 +58,12 @@ narn --version
 ```
 
 For more usage, see the [Yarn CLI docs](https://yarnpkg.com/lang/en/docs/cli/) - `narn`'s cli is meant to behave exactly the same.
+
+## Default Package Manager
+
+To set the default package manager that's used in projects that don't have a yarn.lock, pnpm-lock.yaml, or package-lock.json, set the `NARN_DEFAULT_PM` environment variable. You can also add this to your bashrc (or equivalent) to ensure the variable is always there.
+
+```sh
+export NARN_DEFAULT_PM=pnpm
+narn
+```
