@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { spawn } = require("child_process");
 const {
+  detectYarn,
   detectNpm,
   detectPnpm,
   getYarnArgs,
@@ -15,9 +16,10 @@ const narnPackageJson = JSON.parse(
 
 async function runPackageManager() {
   const narnArgs = process.argv.slice(2);
-  const [isNpm, isPnpm] = await Promise.all([
+  const [isNpm, isPnpm, isYarn] = await Promise.all([
     detectNpm(narnArgs),
     detectPnpm(narnArgs),
+    detectYarn(narnArgs),
   ]);
 
   let command;
@@ -26,6 +28,8 @@ async function runPackageManager() {
     command = "pnpm";
   } else if (isNpm) {
     command = "npm";
+  } else if (isYarn) {
+    command = "yarn";
   } else if (process.env.NARN_DEFAULT_PM === "pnpm") {
     command = "pnpm";
   } else if (process.env.NARN_DEFAULT_PM === "npm") {
