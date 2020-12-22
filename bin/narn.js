@@ -26,6 +26,10 @@ async function runPackageManager() {
     command = "pnpm";
   } else if (isNpm) {
     command = "npm";
+  } else if (process.env.NARN_DEFAULT_PM === "pnpm") {
+    command = "pnpm";
+  } else if (process.env.NARN_DEFAULT_PM === "npm") {
+    command = "npm";
   } else {
     command = "yarn";
   }
