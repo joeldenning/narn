@@ -67,3 +67,12 @@ To set the default package manager that's used in projects that don't have a yar
 export NARN_DEFAULT_PM=pnpm
 narn
 ```
+
+## Publish behavior
+
+By default, narn uses [`np`](https://github.com/sindresorhus/np) on npm and pnpm projects. However, [`np` doesn't support pnpm](https://github.com/sindresorhus/np/issues/251). Because of that, it might be desireable to turn off `np` as the handler for `npm publish`. To disable `np`, set the following environment variable:
+
+```js
+export NARN_PUBLISH=passthrough
+narn publish
+```
