@@ -6,6 +6,7 @@ describe("narn publish", () => {
   });
 
   it("runs np", () => {
+    delete process.env.NARN_PUBLISH;
     const expected = [];
     expected.command = "np";
     expect(getNpmArgs(["publish"])).toEqual(expected);
