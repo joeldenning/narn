@@ -10,7 +10,9 @@
   "homepage": "https://github.com/joeldenning/narn",
   "license": "MIT",
   "scripts": {
-    "test": "jest --env=node && js-correct-lockfile pnpm",
+    "test": "concurrently \"pnpm:test:*\"",
+    "test:jest": "jest --env=node",
+    "test:lockfile": "js-correct-lockfile pnpm",
     "format": "prettier . --write",
     "check-format": "prettier . --check",
     "postinstall": "husky install",
@@ -28,6 +30,7 @@
   ],
   "devDependencies": {
     "@types/jest": "^26.0.20",
+    "concurrently": "^6.0.0",
     "husky": "5",
     "jest": "^26.0.1",
     "jest-cli": "^26.0.1",

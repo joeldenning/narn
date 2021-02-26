@@ -1,4 +1,4 @@
-const { detectNpm } = require("../lib/narn-lib");
+const { detectNpm, getNpmArgs } = require("../lib/narn-lib");
 const fs = require("fs");
 
 jest.mock("fs", () => ({
@@ -13,14 +13,17 @@ describe("narn global commands", () => {
     fs.access.mockReset();
   });
 
-  it("supports installing global packages", async () => {
-    const isNpm = await detectNpm(["global", "add", "lodash@1.0.0"]);
-    expect(isNpm).toBe(false);
-  });
-
-  it("supports uninstalling global packages", async () => {
-    const isNpm = await detectNpm(["global", "remove", "lodash"]);
-    expect(isNpm).toBe(false);
+  it("works for global installations with npm/pnpm", () => {
+    expect(getNpmArgs(["global", "add", "create-single-spa"])).toEqual([
+      "install",
+      "--global",
+      "create-single-spa@latest",
+    ]);
+    expect(getNpmArgs(["global", "remove", "create-single-spa"])).toEqual([
+      "uninstall",
+      "--global",
+      "create-single-spa",
+    ]);
   });
 
   it("doesn't think everything is global", async () => {
