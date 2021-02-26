@@ -9,8 +9,9 @@ Never have to switch between yarn, npm, and pnpm commands ever again.
 ```sh
 npm i -g narn
 
-# Or
 yarn global add narn
+
+pnpm i -g narn
 ```
 
 ### Extras
