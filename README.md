@@ -56,6 +56,13 @@ narn create single-spa
 # View the installed versions of narn and yarn/npm
 narn -v
 narn --version
+
+# global commands are supported too
+narnx global add http-server
+narnx global remove http-server
+
+# Run npx / pnpx
+narnx create-single-spa
 ```
 
 For more usage, see the [Yarn CLI docs](https://yarnpkg.com/lang/en/docs/cli/) - `narn`'s cli is meant to behave exactly the same.
