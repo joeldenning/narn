@@ -8,4 +8,10 @@ describe("narn exec", () => {
       "init",
     ]);
   });
+
+  it("forwards flags", () => {
+    expect(
+      getNpmArgs(["exec", "sequelize-cli", "seed", "--name", "demo-user"])
+    ).toEqual(["exec", "sequelize-cli", "seed", "--name", "demo-user"]);
+  });
 });
