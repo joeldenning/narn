@@ -22,4 +22,13 @@ describe(`narn <script>`, () => {
       "--dev",
     ]);
   });
+
+  // https://github.com/pnpm/pnpm/discussions/4678
+  it(`does not add double dashes for pnpm 7`, () => {
+    expect(getNpmArgs(["test", "--watch"], true)).toEqual([
+      "run",
+      "test",
+      "--watch",
+    ]);
+  });
 });
